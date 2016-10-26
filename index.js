@@ -2,7 +2,32 @@
     // -------------------------------------------------------------------------
     // HELPER FUNCTIONS
 
-    // A more performant forEach, also, this allows for dynamic variables
+	if (typeof Object.assign != 'function') {
+		(function () {
+			Object.assign = function (target) {
+				'use strict';
+				// We must check against these specific cases.
+				if (target === undefined || target === null) {
+					throw new TypeError('Cannot convert undefined or null to object');
+				}
+
+				var output = Object(target);
+				for (var index = 1; index < arguments.length; index++) {
+					var source = arguments[index];
+					if (source !== undefined && source !== null) {
+						for (var nextKey in source) {
+							if (source.hasOwnProperty(nextKey)) {
+								output[nextKey] = source[nextKey];
+							}
+						}
+					}
+				}
+				return output;
+			};
+		})();
+	}
+
+    // A more performant forEach that also allows for dynamic variables
     function forEach(arr, action) {
         for (var i = 0; i < arr.length; i++) {
             action(arr[i]);
@@ -166,7 +191,7 @@
 
         // Master list container
         listContainer = tag('div', [listContainerUl], {
-            'class': 'CustomDropdown-list'
+            'class': 'list'
         });
 
         // Return a string of escaped HTML
@@ -277,9 +302,3 @@
         return dropdowns;
     };
 }());
-
-document.addEventListener('DOMContentLoaded', function(event) {
-	new dropdowns({
-	    selector: '.Filter-sort'
-	});
-});

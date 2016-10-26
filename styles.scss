@@ -26,18 +26,10 @@
     background-color: #fff;
     box-shadow: 0 1px 0 rgba(0,0,0,0.0075);
 
+    font-family: 'proxima-nova', 'helvetica';
     font-size: 14px;
     font-weight: normal;
-	font-family: 'proxima-nova', 'helvetica';
     line-height: 1;
-
-    // &:focus {
-    //     background-color: darken(#ddd, 2%);
-    // }
-	//
-    // &:hover {
-    //     background-color: darken(#ddd, 1%);
-    // }
 
     &:active {
         border-color: #ffb700;
@@ -86,10 +78,11 @@
         }
     }
 
-	.current {
-		padding: 18px 16px;
-		display: block;
-	}
+    .current {
+        display: block;
+
+        padding: 18px 16px;
+    }
 
     .option {
         padding: 18px 16px;
@@ -109,8 +102,9 @@
         }
 
         &.selected {
+            background-color: #ddd;
+
             font-weight: 600;
-			background-color: #ddd;
         }
 
         &.selected:focus {
@@ -120,38 +114,38 @@
 }
 
 .CustomDropdown-list {
-	position: absolute;
-	z-index: 999;
-	top: 100%;
-	width: 100%;
-	left: 0;
+    position: absolute;
+    z-index: 999;
+    top: 100%;
+    left: 0;
 
-	overflow: hidden;
+    overflow: hidden;
 
-	box-sizing: border-box;
-	margin-top: 4px;
-	padding: 3px 0;
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 4px;
+    padding: 3px 0;
 
-	transition: all 0.15s cubic-bezier(0.25, 0, 0.25, 1.75), opacity 0.1s linear;
-	transform: scale(0.75);
-	transform-origin: 50% 0;
-	pointer-events: none;
+    transition: all 0.15s cubic-bezier(0.25, 0, 0.25, 1.75), opacity 0.1s linear;
+    transform: scale(0.75);
+    transform-origin: 50% 0;
+    pointer-events: none;
 
-	opacity: 0;
-	border-radius: 3px;
-	background-color: #fff;
-	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.09);
+    opacity: 0;
+    border-radius: 3px;
+    background-color: #fff;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.09);
 
-	ul {
-		padding: 0;
-		margin: 0;
-	}
+    ul {
+        margin: 0;
+        padding: 0;
+    }
 
-	li {
-		list-style-type: none;
-	}
+    li {
+        list-style-type: none;
+    }
 
-	&:hover .option:not(:hover) {
-		background-color: transparent !important;
-	}
+    &:hover .option:not(:hover) {
+        background-color: transparent !important;
+    }
 }
